@@ -1,0 +1,518 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@700&family=Open+Sans:wght@300;400;600&display=swap");
+
+:root {
+  --orange: #ff9f1a;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.2s linear;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+}
+
+::selection {
+  background: var(--orange);
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+.btn {
+  font-size: 2rem;
+  background: none;
+  padding: 0.5rem 3rem;
+  border: 0.2rem solid var(--orange);
+  color: var(--orange);
+  cursor: pointer;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 0;
+}
+
+.heading {
+  display: inline-block;
+  color: #333;
+  padding: 1rem;
+  margin: 2rem 0;
+  font-size: 3rem;
+  padding-top: 8rem;
+  border-bottom: 0.2rem solid var(--orange);
+}
+
+.btn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: var(--orange);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  clip-path: circle(0% at 0% 0%);
+  transition: 0.3s;
+}
+
+.btn:hover::before {
+  clip-path: circle(100%);
+}
+.btn:hover {
+  color: #fff;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1000;
+  padding: 2rem 3rem;
+}
+
+header.active-class {
+  background: #fff;
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+header.active-class .logo span,
+header.active-class .navbar .nav-items li a {
+  color: #666;
+}
+
+header .logo {
+  font-size: 3rem;
+  color: var(--orange);
+}
+
+header .logo span {
+  color: #fff;
+}
+
+header #menu {
+  font-size: 3rem;
+  color: var(--orange);
+  cursor: pointer;
+  display: none;
+}
+
+header .navbar .nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+header .navbar .nav-items li {
+  margin: 0 1rem;
+}
+
+header .navbar .nav-items li a {
+  color: #fff;
+  font-size: 2rem;
+}
+header .navbar .nav-items li a.active,
+header .navbar .nav-items li a:hover {
+  color: var(--orange);
+}
+
+.home {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./images/home.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+}
+
+.home h1 {
+  font-size: 6rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem #000;
+  padding: 0 1rem;
+}
+
+.home .btn:hover {
+  text-shadow: 0 0.3rem 0.5rem #000;
+  color: #fff;
+}
+
+/* about style  */
+
+.about .row {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 8rem;
+}
+
+.about .row .image img {
+  width: 100%;
+  height: 100%;
+}
+.about .row .contain,
+.about .row .image {
+  flex: 1 1 40rem;
+  padding: 2rem;
+}
+
+.about .row .contain h3 {
+  font-size: 4rem;
+  color: #333;
+}
+
+.about .row .contain p {
+  font-size: 1.7rem;
+  color: #666;
+  padding: 1rem 0;
+}
+
+/* service sytle  */
+
+.service {
+  min-height: 100vh;
+  text-align: center;
+}
+
+.service .box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.service .box-container .box {
+  margin: 1rem;
+  width: 35rem;
+  height: 23rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.service .box-container .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service .box-container .box .info {
+  width: 90%;
+  height: 90%;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  cursor: pointer;
+}
+
+.service .box-container .box:hover .info {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.service .box-container .box .info h3 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.service .box-container .box .info p {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  color: #666;
+}
+
+/* trainer style  */
+
+.trainer {
+  min-height: 100vh;
+  text-align: center;
+  background: #333;
+}
+
+.trainer .heading {
+  color: #fff;
+}
+
+.trainer .box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.trainer .box-container .box {
+  width: 27rem;
+  height: 40rem;
+  margin: 1rem;
+  border: 0.5rem solid var(--orange);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0.3rem 0.5rem #000;
+}
+
+trainer .box-container .box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trainer .box-container .box .info {
+  position: absolute;
+  color: #333;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background: #fff;
+  border-top: 0.5rem solid var(--orange);
+  font-size: 2rem;
+}
+
+.trainer .box-container .box .share {
+  position: absolute;
+  display: flex;
+  top: 1rem;
+  right: -100%;
+  flex-flow: column;
+}
+
+.trainer .box-container .box:hover .share {
+  right: 0;
+}
+
+.trainer .box-container .box .share a {
+  width: 4.5rem;
+  height: 4rem;
+  line-height: 4rem;
+  background: #fff;
+  margin: 0.5rem 1rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.trainer .box-container .box .share a:hover {
+  background: var(--orange);
+  color: #fff;
+}
+
+/* plan style  */
+.plan {
+  min-height: 100vh;
+  text-align: center;
+  background: #eee;
+}
+
+.plan .box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.plan .box-container .box {
+  width: 30rem;
+  background: #fff;
+  margin: 2rem;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.plan .box-container .box:hover {
+  transform: scale(1.04);
+}
+
+.plan .box-container .box .title {
+  background: var(--orange);
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 1rem 0;
+}
+
+.plan .box-container .box .price {
+  font-size: 4rem;
+  color: #666;
+  padding-top: 1rem;
+}
+
+.plan .box-container .box .price span {
+  font-size: 2rem;
+}
+
+.plan .box-container .box .month {
+  font-size: 2rem;
+  color: #666;
+  padding: 0.5rem;
+}
+
+.plan .box-container .box ul {
+  list-style: none;
+  margin: 1rem 8rem;
+}
+
+.plan .box-container .box ul li {
+  text-align: left;
+  font-size: 1.3rem;
+  color: #666;
+  padding: 0.5rem 0;
+}
+
+.plan .box-container .box ul li i {
+  color: var(--orange);
+  margin: 0.5rem;
+}
+
+.plan .box-container .box .btn {
+  margin-bottom: 3rem;
+}
+
+/* register style  */
+
+.register {
+  min-height: 100vh;
+  background: #000;
+  text-align: center;
+}
+
+.register .heading {
+  color: #fff;
+}
+
+.register form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.register form .input-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.register form .input-box input,
+textarea {
+  height: 4rem;
+  width: 49%;
+  background: #111;
+  border: none;
+  padding: 0 0.5rem;
+  margin: 1rem 0;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.register form .input-box input:focus,
+textarea:focus{
+  background: #333;
+}
+
+.register form textarea {
+  height: 20rem;
+  resize: none;
+  width: 100%;
+  padding: 1rem;
+}
+
+.register form .btn {
+  margin-top: 1.5rem;
+}
+
+.register form .btn:hover {
+  background: var(--orange);
+}
+
+
+/* footer section  */
+
+.footer{
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  color: #fff;
+  background: #333;
+  
+}
+
+.footer a{
+  color: var(--orange);
+}
+
+.footer a:hover{
+  color: #fff;
+}
+
+/* media queries  */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+  header #menu {
+    display: block;
+  }
+
+  header .navbar {
+    position: fixed;
+    width: 100%;
+    top: -100rem;
+    left: 0;
+    background: #fff;
+    bottom: 0.1rem solid rgba(0, 0, 0, 0.3);
+  }
+
+  header .navbar.active-nav {
+    top: 8rem;
+  }
+
+  header .navbar .nav-items {
+    flex-flow: column;
+    margin: 2rem 0;
+  }
+
+  header .navbar .nav-items li {
+    margin: 1rem 0;
+    text-align: center;
+    width: 100%;
+  }
+  header .navbar .nav-items li a {
+    color: #333;
+    display: block;
+    font-size: 2.5rem;
+  }
+
+  .register form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+  .home h1 {
+    font-size: 4rem;
+  }
+
+  .register form .input-box input {
+    width: 100%;
+  }
+}
